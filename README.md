@@ -17,7 +17,7 @@ a new business there is viable or not.
 - Chart.js
 
 ### API
-- US Census Data API
+- [US Census Data API](https://www.census.gov/content/dam/Census/data/developers/api-user-guide/api-guide.pdf)
 
 ### Timeline
 - Phase One: Create API interface DOM components to extract Census data based on filter terms
