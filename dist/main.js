@@ -43,6 +43,10 @@ income.then(data =>{
     .append("div")
     .style("width", function ( popPercent ) { return (popPercent *10) + 'px' })
     .text(function (popPercent) { return  popPercent + '%'; })
+
+
+
+    
     )
 } )
 
