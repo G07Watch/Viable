@@ -1,0 +1,29 @@
+{
+  "name": "viable",
+  "version": "1.0.0",
+  "description": "census market data visualization",
+  "main": "main.js",
+  "scripts": {
+    "test": "test",
+    "postinstall": "webpack",
+    "webpack": "webpack --mode=development --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/G07Watch/Viable.git"
+  },
+  "author": "Garvin Ming",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/G07Watch/Viable/issues"
+  },
+  "homepage": "https://github.com/G07Watch/Viable#readme",
+  "dependencies": {
+    "chart.js": "^2.9.3",
+    "node-fetch": "^2.6.0",
+    "webpack": "^4.41.2"
+  },
+  "devDependencies": {
+    "webpack-cli": "^3.3.10"
+  }
+}
