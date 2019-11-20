@@ -14,7 +14,7 @@ a new business there is viable or not.
 - JavaScript
 - HTML
 - CSS
-- Chart.js
+- D3.js Data-Driven Documents
 
 ### API
 - [US Census Data API](https://www.census.gov/content/dam/Census/data/developers/api-user-guide/api-guide.pdf)
