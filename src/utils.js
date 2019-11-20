@@ -12,11 +12,11 @@ const fetchStatePop = async() => {
   .then(res => res.json())
   .then(json => json)
 
-  console.log(response);
+  // console.log(response);
   return response;
 }
 
-fetchStatePop();
+// fetchStatePop();
 
 const StateEncoder = async() =>{
 
@@ -48,10 +48,11 @@ const fetchIncomeBracket = async(bracketCode, stateCode) => {
     .then(res => res.json())
     .then(json => json)
     
-  console.log(response);
+  // console.log(response);
   return response;
 }
 
-const income = fetchIncomeBracket("S0501_C03_080E", "01")
+// const stateA = fetchIncomeBracket("S0501_C03_080E", "01")
+// const stateB = fetchIncomeBracket("S0501_C03_080E", "11")
 
-module.exports = {income}
+module.exports = { fetchIncomeBracket }
