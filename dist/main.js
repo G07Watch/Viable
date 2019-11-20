@@ -28,16 +28,21 @@ income.then(data =>{
 
 
   let state = data[0]
+  let popPercent = [state[1]]
   console.log("The Income Bracket data", data);
   console.log("The Income Bracket state", state);
+  console.log("Populaton percentage", popPercent);
 
   return (
     d3.select('body')
-    .selectAll('p')
-    .data(state)
+    .selectAll('div')
+    .data(popPercent)
     .enter()
-    .append('p')
-    .text(function (state) { return state; })
+    // .append('p')
+    // .text(function (state) { return state; })
+    .append("div")
+    .style("width", function ( popPercent ) { return (popPercent *10) + 'px' })
+    .text(function (popPercent) { return '$ ' + popPercent; })
     )
 } )
 
