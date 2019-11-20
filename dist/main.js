@@ -1,52 +1,51 @@
-const {income} = require("../src/utils");
-
-// document.addEventListener("DOMContentLoaded", function () {
-
-//   const canvas = document.getElementById('Viable-Viewer');
-//   // canvas.width = 500;
-//   // canvas.width = 500;
-//   const ctx = canvas.getContext('2d')
-
-//   ctx.fillStyle = "red";
-//   ctx.fillRect(10, 10, 500, 500);
 
 
-//   ctx.beginPath();
-//   ctx.arc(200, 100, 75, 0, 2 * Math.PI);
-//   ctx.strokeStyle = 'blue';
-//   ctx.lineWidth = 10;
-//   ctx.stroke();
+const { fetchIncomeBracket } = require("../src/utils");
+
+// let bracketCode = { code: "S0501_C03_080E"}
+// let stateACode = {stateA: "01"}
 
 
-// });
+const stateASelect = () =>{
+ let stateACode = stateA.options[stateA.selectedIndex].value
+  console.log(stateACode)
+}
 
-d3.select('h1')
-.style ("color", "red"); 
+const bracketSelect = () =>{
+  let bracketCode = incomeBracket.options[incomeBracket.selectedIndex].value;
+  if (bracketCode != "defaultBracket"){
 
-income.then(data =>{
-  data.shift();
-
-
-  let state = data[0]
-  let popPercent = [state[1]]
-  console.log("The Income Bracket data", data);
-  console.log("The Income Bracket state", state);
-  console.log("Populaton percentage", popPercent);
-
-  return (
-    d3.select('body')
-    .selectAll('div')
-    .data(popPercent)
-    .enter()
-    // .append('p')
-    // .text(function (state) { return state; })
-    .append("div")
-    .style("width", function ( popPercent ) { return (popPercent *10) + 'px' })
-    .text(function (popPercent) { return  popPercent + '%'; })
-
-
-
+    let stateACode = stateA.options[stateA.selectedIndex].value
     
-    )
-} )
+    fetchIncomeBracket(bracketCode, stateACode).then(data => {
+      data.shift();
+      
+      let state = data[0]
+      let popPercent = [state[1]]
+      
+      d3.select("#Graph-Display1")
+      .selectAll("div")
+      .remove("div")
+      
+      d3.select("#Graph-Display1")
+      .selectAll("div")
+      .data(popPercent)
+      .enter()
+      .append("div")
+      .style("width", function (popPercent) { return (popPercent * 20) + 'px' })
+      .text(function (popPercent) { return popPercent + '%'; })
+      
+    })
+  }else{
+    d3.select("#Graph-Display1")
+      .selectAll("div")
+      .remove("div")
+  }
+    
+}
 
+const incomeBracket = document.getElementById("econ-ind")
+incomeBracket.addEventListener("change", bracketSelect)
+
+const stateA = document.getElementById("stateA")
+stateA.addEventListener("change", stateASelect)

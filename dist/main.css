@@ -1,7 +1,44 @@
-div{
+#Graph-Display1 div{
+  width: fit-content;
   color: white;
   font: 10px sans-serif;
   background-color: rgb(70, 90, 180);
+  text-align: right;
+  padding: 5px;
+  margin: 3px;
+}
+#Graph-Display2 div{
+  width: fit-content;
+  color: white;
+  font: 10px sans-serif;
+  background-color: rgb(180, 70, 79);
+  text-align: right;
+  padding: 5px;
+  margin: 3px;
+}
+#Graph-Display3 div{
+  width: fit-content;
+  color: white;
+  font: 10px sans-serif;
+  background-color: rgb(180, 70, 79);
+  text-align: right;
+  padding: 5px;
+  margin: 3px;
+}
+#Graph-Display4 div{
+  width: fit-content;
+  color: white;
+  font: 10px sans-serif;
+  background-color: rgb(180, 70, 79);
+  text-align: right;
+  padding: 5px;
+  margin: 3px;
+}
+#Graph-Display5 div{
+  width: fit-content;
+  color: white;
+  font: 10px sans-serif;
+  background-color: rgb(180, 70, 79);
   text-align: right;
   padding: 5px;
   margin: 3px;
