@@ -1,17 +1,22 @@
 const fetch = require('node-fetch');
+const {secretOrKey} = require('../config/keys');
+
 const stateIndex = {};
 
 const fetchStatePop = async() => {
 
   let response = await fetch(
-    "https://api.census.gov/data/2018/pep/population?get=GEONAME,POP&for=state:*&key=2fe43e6309e00333d4f7f2c984bf7ac1c895276d",{
+    `https://api.census.gov/data/2018/pep/population?get=GEONAME,POP&for=state:*&key=${secretOrKey}`,{
     method: "GET"
   })
   .then(res => res.json())
   .then(json => json)
 
+  console.log(response);
   return response;
 }
+
+fetchStatePop();
 
 const StateEncoder = async() =>{
 
@@ -37,7 +42,7 @@ const StateEncoder = async() =>{
 const fetchIncomeBracket = async(bracketCode, stateCode) => {
 
   let response = await fetch(
-    `https://api.census.gov/data/2018/acs/acs1/subject?get=NAME,${bracketCode}&for=state:${stateCode}`, {
+    `https://api.census.gov/data/2018/acs/acs1/subject?get=NAME,${bracketCode}&for=state:${stateCode}&key=${secretOrKey}`, {
       method: "GET"
     })
     .then(res => res.json())

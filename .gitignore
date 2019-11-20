@@ -2,3 +2,4 @@ node_modules/
 DirStructure.md 
 bundle.js
 bundle.js.map
+config/
