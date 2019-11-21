@@ -2,7 +2,7 @@
 
 const { fetchIncomeBracket } = require("../src/utils");
 
-const fetchIncomeBracketA = (bracket, state) => {
+const fetchIncomePercent = (bracket, state, graph) => {
 
   fetchIncomeBracket(bracket, state).then(data => {
     data.shift();
@@ -10,11 +10,11 @@ const fetchIncomeBracketA = (bracket, state) => {
     let state = data[0]
     let popPercent = [state[1]]
 
-    d3.select("#Graph-Display1")
+    d3.select(graph)
       .selectAll("div")
       .remove("div")
 
-    d3.select("#Graph-Display1")
+    d3.select(graph)
       .selectAll("div")
       .data(popPercent)
       .enter()
@@ -25,94 +25,94 @@ const fetchIncomeBracketA = (bracket, state) => {
   })
 }
 
-const fetchIncomeBracketB = (bracket, state) => {
+// const fetchIncomeBracketB = (bracket, state) => {
 
-  fetchIncomeBracket(bracket, state).then(data => {
-    data.shift();
+//   fetchIncomeBracket(bracket, state).then(data => {
+//     data.shift();
 
-    let state = data[0]
-    let popPercent = [state[1]]
+//     let state = data[0]
+//     let popPercent = [state[1]]
 
-    d3.select("#Graph-Display2")
-      .selectAll("div")
-      .remove("div")
+//     d3.select("#Graph-Display2")
+//       .selectAll("div")
+//       .remove("div")
 
-    d3.select("#Graph-Display2")
-      .selectAll("div")
-      .data(popPercent)
-      .enter()
-      .append("div")
-      .style("width", function (popPercent) { return (popPercent * 20) + 'px' })
-      .text(function (popPercent) { return popPercent + '%'; })
+//     d3.select("#Graph-Display2")
+//       .selectAll("div")
+//       .data(popPercent)
+//       .enter()
+//       .append("div")
+//       .style("width", function (popPercent) { return (popPercent * 20) + 'px' })
+//       .text(function (popPercent) { return popPercent + '%'; })
 
-  })
-}
-const fetchIncomeBracketC = (bracket, state) => {
+//   })
+// }
+// const fetchIncomeBracketC = (bracket, state) => {
 
-  fetchIncomeBracket(bracket, state).then(data => {
-    data.shift();
+//   fetchIncomeBracket(bracket, state).then(data => {
+//     data.shift();
 
-    let state = data[0]
-    let popPercent = [state[1]]
+//     let state = data[0]
+//     let popPercent = [state[1]]
 
-    d3.select("#Graph-Display3")
-      .selectAll("div")
-      .remove("div")
+//     d3.select("#Graph-Display3")
+//       .selectAll("div")
+//       .remove("div")
 
-    d3.select("#Graph-Display3")
-      .selectAll("div")
-      .data(popPercent)
-      .enter()
-      .append("div")
-      .style("width", function (popPercent) { return (popPercent * 20) + 'px' })
-      .text(function (popPercent) { return popPercent + '%'; })
+//     d3.select("#Graph-Display3")
+//       .selectAll("div")
+//       .data(popPercent)
+//       .enter()
+//       .append("div")
+//       .style("width", function (popPercent) { return (popPercent * 20) + 'px' })
+//       .text(function (popPercent) { return popPercent + '%'; })
 
-  })
-}
-const fetchIncomeBracketD = (bracket, state) => {
+//   })
+// }
+// const fetchIncomeBracketD = (bracket, state) => {
 
-  fetchIncomeBracket(bracket, state).then(data => {
-    data.shift();
+//   fetchIncomeBracket(bracket, state).then(data => {
+//     data.shift();
 
-    let state = data[0]
-    let popPercent = [state[1]]
+//     let state = data[0]
+//     let popPercent = [state[1]]
 
-    d3.select("#Graph-Display4")
-      .selectAll("div")
-      .remove("div")
+//     d3.select("#Graph-Display4")
+//       .selectAll("div")
+//       .remove("div")
 
-    d3.select("#Graph-Display4")
-      .selectAll("div")
-      .data(popPercent)
-      .enter()
-      .append("div")
-      .style("width", function (popPercent) { return (popPercent * 20) + 'px' })
-      .text(function (popPercent) { return popPercent + '%'; })
+//     d3.select("#Graph-Display4")
+//       .selectAll("div")
+//       .data(popPercent)
+//       .enter()
+//       .append("div")
+//       .style("width", function (popPercent) { return (popPercent * 20) + 'px' })
+//       .text(function (popPercent) { return popPercent + '%'; })
 
-  })
-}
-const fetchIncomeBracketE = (bracket, state) => {
+//   })
+// }
+// const fetchIncomeBracketE = (bracket, state, graph) => {
 
-  fetchIncomeBracket(bracket, state).then(data => {
-    data.shift();
+//   fetchIncomeBracket(bracket, state).then(data => {
+//     data.shift();
 
-    let state = data[0]
-    let popPercent = [state[1]]
+//     let state = data[0]
+//     let popPercent = [state[1]]
 
-    d3.select("#Graph-Display5")
-      .selectAll("div")
-      .remove("div")
+//     d3.select("#Graph-Display5")
+//       .selectAll("div")
+//       .remove("div")
 
-    d3.select("#Graph-Display5")
-      .selectAll("div")
-      .data(popPercent)
-      .enter()
-      .append("div")
-      .style("width", function (popPercent) { return (popPercent * 20) + 'px' })
-      .text(function (popPercent) { return popPercent + '%'; })
+//     d3.select("#Graph-Display5")
+//       .selectAll("div")
+//       .data(popPercent)
+//       .enter()
+//       .append("div")
+//       .style("width", function (popPercent) { return (popPercent * 20) + 'px' })
+//       .text(function (popPercent) { return popPercent + '%'; })
 
-  })
-}
+//   })
+// }
 
 const stateASelect = () =>{
   console.log("A Select Fired!")
@@ -123,7 +123,7 @@ const stateASelect = () =>{
 
     if (bracketCode != "defaultBracket"){
 
-      fetchIncomeBracketA(bracketCode, stateACode)
+      fetchIncomePercent(bracketCode, stateACode, "#Graph-Display1")
   
     }else{
       d3.select("#Graph-Display1")
@@ -149,7 +149,7 @@ const stateBSelect = () => {
 
     if (bracketCode != "defaultBracket") {
 
-      fetchIncomeBracketB(bracketCode, stateBCode)
+      fetchIncomePercent(bracketCode, stateBCode, "#Graph-Display2")
 
     } else {
       d3.select("#Graph-Display2")
@@ -174,7 +174,7 @@ const stateCSelect = () => {
 
     if (bracketCode != "defaultBracket") {
 
-      fetchIncomeBracketC(bracketCode, stateCCode)
+      fetchIncomePercent(bracketCode, stateCCode, "#Graph-Display3")
 
     } else {
       d3.select("#Graph-Display3")
@@ -198,7 +198,7 @@ const stateDSelect = () => {
 
     if (bracketCode != "defaultBracket") {
 
-      fetchIncomeBracketD(bracketCode, stateDCode)
+      fetchIncomePercent(bracketCode, stateDCode, "#Graph-Display4")
 
     } else {
       d3.select("#Graph-Display4")
@@ -222,7 +222,7 @@ const stateESelect = () => {
 
     if (bracketCode != "defaultBracket") {
 
-      fetchIncomeBracketE(bracketCode, stateECode)
+      fetchIncomePercent(bracketCode, stateECode, "#Graph-Display5")
 
     } else {
       d3.select("#Graph-Display5")
@@ -250,27 +250,27 @@ const bracketSelect = () =>{
     
     if (stateACode != "default") {
 
-      fetchIncomeBracketA(bracketCode, stateACode)
+      fetchIncomePercent(bracketCode, stateACode, "#Graph-Display1")
      
     }
     if (stateBCode !="default") {
 
-      fetchIncomeBracketB(bracketCode, stateBCode)
+      fetchIncomePercent(bracketCode, stateBCode, "#Graph-Display2")
           
     }
     if (stateCCode != "default") {
 
-      fetchIncomeBracketC(bracketCode, stateCCode)
+      fetchIncomePercent(bracketCode, stateCCode, "#Graph-Display3")
 
     }
     if (stateDCode != "default") {
 
-      fetchIncomeBracketD(bracketCode, stateDCode)
+      fetchIncomePercent(bracketCode, stateDCode, "#Graph-Display4")
 
     }
     if (stateECode != "default") {
 
-      fetchIncomeBracketE(bracketCode, stateECode)
+      fetchIncomePercent(bracketCode, stateECode, "#Graph-Display5")
 
     }else{
       d3.select("#Graph-Display1")
