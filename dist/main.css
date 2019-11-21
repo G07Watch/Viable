@@ -12,6 +12,17 @@ h1, h2{
 
 select{
   width: fit-content;
+  border: 2px solid whitesmoke;
+  border-radius: 5px;
+}
+
+
+
+#econ-ind{
+  text-decoration: none;
+  text-transform: none;
+  background-color: whitesmoke;
+  color:rgba(27, 25, 25, 0.815);
 }
 
 #stateA{
@@ -22,8 +33,9 @@ select{
 }
 
 #Graph-Display1 div{
+  height: 15px;
   width: fit-content;
-  min-width: 20px;
+  /* min-width: 20px; */
   color: white;
   font: 10px sans-serif;
   background-color: rgb(70, 90, 180);
@@ -41,6 +53,7 @@ select{
 
 
 #Graph-Display2 div{
+  height: 15px;
   width: fit-content;
   min-width: 20px;
   color: white;
@@ -59,6 +72,7 @@ select{
 }
 
 #Graph-Display3 div{
+  height: 15px;
   width: fit-content;
   min-width: 20px;
   color: white;
@@ -72,16 +86,17 @@ select{
 #stateD{
   text-decoration: none;
   text-transform: none;
-  background-color: rgb(197, 172, 30);
-  color: white;
+  background-color: rgb(241, 211, 35);
+  color:rgba(27, 25, 25, 0.815);
 }
 
 #Graph-Display4 div{
+  height: 15px;
   width: fit-content;
   min-width: 20px;
-  color: white;
+  color: rgba(27, 25, 25, 0.815);
   font: 10px sans-serif;
-  background-color: rgb(197, 172, 30);
+  background-color: rgb(241, 211, 35);
   text-align: right;
   padding: 5px;
   margin: 3px;
@@ -95,6 +110,7 @@ select{
 }
 
 #Graph-Display5 div{
+  height: 15px;
   width: fit-content;
   min-width: 20px;
   color: white;
