@@ -1,5 +1,29 @@
+body{
+  background-color: rgba(27, 25, 25, 0.815);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 5%;
+}
+
+h1, h2{
+  color: whitesmoke;
+}
+
+select{
+  width: fit-content;
+}
+
+#stateA{
+  text-decoration: none;
+  text-transform: none;
+  background-color: rgb(70, 90, 180);
+  color: white;
+}
+
 #Graph-Display1 div{
   width: fit-content;
+  min-width: 20px;
   color: white;
   font: 10px sans-serif;
   background-color: rgb(70, 90, 180);
@@ -7,8 +31,18 @@
   padding: 5px;
   margin: 3px;
 }
+
+#stateB{
+  text-decoration: none;
+  text-transform: none;
+  background-color: rgb(180, 70, 79);
+  color: white;
+}
+
+
 #Graph-Display2 div{
   width: fit-content;
+  min-width: 20px;
   color: white;
   font: 10px sans-serif;
   background-color: rgb(180, 70, 79);
@@ -16,29 +50,56 @@
   padding: 5px;
   margin: 3px;
 }
+
+#stateC{
+  text-decoration: none;
+  text-transform: none;
+  background-color: rgb(74, 180, 70);
+  color: white;
+}
+
 #Graph-Display3 div{
   width: fit-content;
+  min-width: 20px;
   color: white;
   font: 10px sans-serif;
-  background-color: rgb(180, 70, 79);
+  background-color: rgb(74, 180, 70);
   text-align: right;
   padding: 5px;
   margin: 3px;
 }
+
+#stateD{
+  text-decoration: none;
+  text-transform: none;
+  background-color: rgb(197, 172, 30);
+  color: white;
+}
+
 #Graph-Display4 div{
   width: fit-content;
+  min-width: 20px;
   color: white;
   font: 10px sans-serif;
-  background-color: rgb(180, 70, 79);
+  background-color: rgb(197, 172, 30);
   text-align: right;
   padding: 5px;
   margin: 3px;
 }
+
+#stateE{
+  text-decoration: none;
+  text-transform: none;
+  background-color: rgb(70, 180, 165);
+  color: white;
+}
+
 #Graph-Display5 div{
   width: fit-content;
+  min-width: 20px;
   color: white;
   font: 10px sans-serif;
-  background-color: rgb(180, 70, 79);
+  background-color: rgb(70, 180, 165);
   text-align: right;
   padding: 5px;
   margin: 3px;
