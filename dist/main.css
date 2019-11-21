@@ -35,7 +35,7 @@ select{
 #Graph-Display1 div{
   height: 15px;
   width: fit-content;
-  min-width: 20px;
+  /* min-width: 20px; */
   color: white;
   font: 10px sans-serif;
   background-color: rgb(70, 90, 180);

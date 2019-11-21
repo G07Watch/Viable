@@ -10,17 +10,27 @@ const fetchIncomePercent = (bracket, state, graph) => {
     let state = data[0]
     let popPercent = [state[1]]
 
+      
     d3.select(graph)
       .selectAll("div")
-      .remove("div")
+      .remove("div");
 
+
+    console.log("Graph",graph)
+    console.log("State", state)
+    console.log("Percentage", popPercent)
+    
     d3.select(graph)
       .selectAll("div")
       .data(popPercent)
       .enter()
       .append("div")
-      .style("width", function (popPercent) { return (popPercent * 20) + 'px' })
+      .transition()
+      .delay(750)
+      .style("width", function (popPercent) { return popPercent * 20 + 'px' })
       .text(function (popPercent) { return popPercent + '%'; })
+
+
 
   })
 }
@@ -39,13 +49,17 @@ const stateASelect = () =>{
     }else{
       d3.select("#Graph-Display1")
         .selectAll("div")
-        .remove("div")
+        // .transition()
+        // .delay(750)
+        .remove("div");
     }
     
   }else{
     d3.select("#Graph-Display1")
       .selectAll("div")
-      .remove("div")
+      // .transition()
+      // .delay(750)
+      .remove("div");
   }
 };
 
@@ -186,6 +200,7 @@ const bracketSelect = () =>{
     }else{
       d3.select("#Graph-Display1")
         .selectAll("div")
+        // .transition()
         .remove("div");
 
       d3.select("#Graph-Display2")
