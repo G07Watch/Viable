@@ -1,6 +1,6 @@
+const { fetchIncomeBracket, fetchStatePop } = require("../src/utils");
 
-
-const { fetchIncomeBracket } = require("../src/utils");
+// INCOME BRACKET FUNCTIONS
 
 const fetchIncomePercent = (bracket, state, graph) => {
 
@@ -26,7 +26,7 @@ const fetchIncomePercent = (bracket, state, graph) => {
       .enter()
       .append("div")
       .transition()
-      .delay(750)
+      .delay(1000)
       .style("width", function (popPercent) { return popPercent * 20 + 'px' })
       .text(function (popPercent) { return popPercent + '%'; })
 
