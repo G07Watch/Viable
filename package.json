@@ -6,7 +6,8 @@
   "scripts": {
     "test": "test",
     "postinstall": "webpack",
-    "webpack": "webpack --mode=development --watch"
+    "webpack": "webpack --mode=development --watch",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install"
   },
   "repository": {
     "type": "git",
