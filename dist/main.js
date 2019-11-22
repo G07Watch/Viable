@@ -1,4 +1,94 @@
-const { fetchIncomeBracket, fetchStatePop } = require("../src/utils");
+const { fetchIncomeBracket, fetchStatePop, fetchLuxuryPercent } = require("../src/utils");
+
+// PERCENTAGE OF HOMES OVER A MILLION
+
+const fetchMillion = (stateCode, graph) => {
+  console.log("Fired Million!")
+  fetchLuxuryPercent(stateCode).then(data=>{
+    data.shift();
+
+    let state = data[0]
+    let name = [state[0]]
+    let housePercent = state[1] ? [state[1]] : [0]
+
+    d3.select(graph)
+      .selectAll("div")
+      .remove("div");
+
+    d3.select(graph)
+      .selectAll("p")
+      .remove("p");
+
+    d3.select(graph)
+      .selectAll("div")
+      .data(housePercent)
+      .enter()
+      .append("div")
+      .transition()
+      .delay(1000)
+      .style("width", function (housePercent) { return housePercent * 20 + 'px' })
+      .text(function (housePercent) { return housePercent + '%' })
+
+    d3.select(graph)
+      .selectAll("p")
+      .data(name)
+      .enter()
+      .append("p")
+      .transition()
+      .delay(250)
+      .text(function (name) { return 'Percent of Homes over $1 million ' + name })
+
+  })
+}
+
+
+// STATE POPULATION
+
+const fetchTotalPop = (stateCode, graph) => {
+  console.log("Fired Total Population!")
+  fetchStatePop(stateCode).then(data =>{ 
+    data.shift();
+
+    let state = data[0]
+    let name = [state[0]]
+    let population = [state[1]]
+    let popAnnotate = (population / 1000000).toString().slice(0, 3)
+
+    // console.log("Graph", graph)
+    // console.log("name", name)
+    // console.log("Population", population)
+
+    d3.select(graph)
+      .selectAll("div")
+      .remove("div");
+
+    d3.select(graph)
+      .selectAll("p")
+      .remove("p");
+
+    d3.select(graph)
+      .selectAll("div")
+      .data(population)
+      .enter()
+      .append("div")
+      .transition()
+      .delay(1000)
+      .style("width", function (population) { return population/100000 + 'px' })
+      .text(function (population) { return (population / 1000000).toString().slice(0, 4); })
+
+    d3.select(graph)
+      .selectAll("p")
+      .data(name)
+      .enter()
+      .append("p")
+      .transition()
+      .delay(250)
+      .text(function (name) { return 'Total Population: ' + name })
+
+
+  })
+}
+
 
 // INCOME BRACKET FUNCTIONS
 
@@ -8,17 +98,22 @@ const fetchIncomePercent = (bracket, state, graph) => {
     data.shift();
 
     let state = data[0]
-    let popPercent = [state[1]]
+    let name = [state[0]]
+    let popPercent = state[1] ? [state[1]] : [0]
 
       
     d3.select(graph)
       .selectAll("div")
       .remove("div");
 
+    d3.select(graph)
+      .selectAll("p")
+      .remove("p");
 
-    console.log("Graph",graph)
-    console.log("State", state)
-    console.log("Percentage", popPercent)
+
+    // console.log("Graph",graph)
+    // console.log("State", state)
+    // console.log("Percentage", popPercent)
     
     d3.select(graph)
       .selectAll("div")
@@ -27,11 +122,17 @@ const fetchIncomePercent = (bracket, state, graph) => {
       .append("div")
       .transition()
       .delay(1000)
-      .style("width", function (popPercent) { return popPercent * 20 + 'px' })
+      .style("width", function (popPercent) { return popPercent*25 + 'px' })
       .text(function (popPercent) { return popPercent + '%'; })
 
-
-
+    d3.select(graph)
+      .selectAll("p")
+      .data(name)
+      .enter()
+      .append("p")
+      .transition()
+      .delay(250)
+      .text(function(name){return 'Percentage of Population: ' + name})
   })
 }
 
@@ -44,22 +145,52 @@ const stateASelect = () =>{
 
     if (bracketCode != "defaultBracket"){
 
-      fetchIncomePercent(bracketCode, stateACode, "#Graph-Display1")
+      fetchIncomePercent(bracketCode, stateACode, "#Graph-Display1");
+      fetchTotalPop(stateACode, "#Graph-Display1Pop");
+      fetchMillion(stateACode, "#Graph-Display1Million");
   
     }else{
       d3.select("#Graph-Display1")
         .selectAll("div")
-        // .transition()
-        // .delay(750)
         .remove("div");
+      d3.select("#Graph-Display1Pop")
+        .selectAll("div")
+        .remove("div");
+      d3.select("#Graph-Display1Million")
+        .selectAll("div")
+        .remove("div");
+
+      d3.select("#Graph-Display1")
+        .selectAll("p")
+        .remove("p");
+      d3.select("#Graph-Display1Pop")
+        .selectAll("p")
+        .remove("p");
+      d3.select("#Graph-Display1Million")
+        .selectAll("p")
+        .remove("p");
     }
     
   }else{
     d3.select("#Graph-Display1")
       .selectAll("div")
-      // .transition()
-      // .delay(750)
       .remove("div");
+    d3.select("#Graph-Display1Pop")
+      .selectAll("div")
+      .remove("div");
+    d3.select("#Graph-Display1Million")
+      .selectAll("div")
+      .remove("div");
+
+    d3.select("#Graph-Display1")
+      .selectAll("p")
+      .remove("p");
+    d3.select("#Graph-Display1Pop")
+      .selectAll("p")
+      .remove("p");
+    d3.select("#Graph-Display1Million")
+      .selectAll("p")
+      .remove("p");
   }
 };
 
@@ -75,17 +206,51 @@ const stateBSelect = () => {
     if (bracketCode != "defaultBracket") {
 
       fetchIncomePercent(bracketCode, stateBCode, "#Graph-Display2")
+      fetchTotalPop(stateBCode, "#Graph-Display2Pop");
+      fetchMillion(stateBCode, "#Graph-Display2Million");
 
     } else {
       d3.select("#Graph-Display2")
         .selectAll("div")
         .remove("div")
+      d3.select("#Graph-Display2Pop")
+        .selectAll("div")
+        .remove("div")
+      d3.select("#Graph-Display2Million")
+        .selectAll("div")
+        .remove("div")
+
+      d3.select("#Graph-Display2")
+        .selectAll("p")
+        .remove("p");
+      d3.select("#Graph-Display2Pop")
+        .selectAll("p")
+        .remove("p");
+      d3.select("#Graph-Display2Million")
+        .selectAll("p")
+        .remove("p");
     }
 
   } else {
     d3.select("#Graph-Display2")
       .selectAll("div")
       .remove("div")
+    d3.select("#Graph-Display2Pop")
+      .selectAll("div")
+      .remove("div")
+    d3.select("#Graph-Display2Million")
+      .selectAll("div")
+      .remove("div")
+
+    d3.select("#Graph-Display2")
+      .selectAll("p")
+      .remove("p");
+    d3.select("#Graph-Display2Pop")
+      .selectAll("p")
+      .remove("p");
+    d3.select("#Graph-Display2Million")
+      .selectAll("p")
+      .remove("p");
   }
 };
 
@@ -100,16 +265,50 @@ const stateCSelect = () => {
     if (bracketCode != "defaultBracket") {
 
       fetchIncomePercent(bracketCode, stateCCode, "#Graph-Display3")
+      fetchTotalPop(stateCCode, "#Graph-Display3Pop");
+      fetchMillion(stateCCode, "#Graph-Display3Million");
 
     } else {
       d3.select("#Graph-Display3")
         .selectAll("div")
         .remove("div")
+      d3.select("#Graph-Display3Pop")
+        .selectAll("div")
+        .remove("div")
+      d3.select("#Graph-Display3Million")
+        .selectAll("div")
+        .remove("div")
+
+      d3.select("#Graph-Display3")
+        .selectAll("p")
+        .remove("p");
+      d3.select("#Graph-Display3Pop")
+        .selectAll("p")
+        .remove("p");
+      d3.select("#Graph-Display3Million")
+        .selectAll("p")
+        .remove("p");
     }
   } else {
     d3.select("#Graph-Display3")
       .selectAll("div")
       .remove("div")
+    d3.select("#Graph-Display3Pop")
+      .selectAll("div")
+      .remove("div")
+    d3.select("#Graph-Display3Million")
+      .selectAll("div")
+      .remove("div")
+
+    d3.select("#Graph-Display3")
+      .selectAll("p")
+      .remove("p");
+    d3.select("#Graph-Display3Pop")
+      .selectAll("p")
+      .remove("p");
+    d3.select("#Graph-Display3Million")
+      .selectAll("p")
+      .remove("p");
   }
 };
 
@@ -124,16 +323,50 @@ const stateDSelect = () => {
     if (bracketCode != "defaultBracket") {
 
       fetchIncomePercent(bracketCode, stateDCode, "#Graph-Display4")
+      fetchTotalPop(stateDCode, "#Graph-Display4Pop");
+      fetchMillion(stateDCode, "#Graph-Display4Million");
 
     } else {
       d3.select("#Graph-Display4")
         .selectAll("div")
         .remove("div")
+      d3.select("#Graph-Display4Pop")
+        .selectAll("div")
+        .remove("div")
+      d3.select("#Graph-Display4Million")
+        .selectAll("div")
+        .remove("div")
+
+      d3.select("#Graph-Display4")
+        .selectAll("p")
+        .remove("p");
+      d3.select("#Graph-Display4Pop")
+        .selectAll("p")
+        .remove("p");
+      d3.select("#Graph-Display4Million")
+        .selectAll("p")
+        .remove("p");
     }
   } else {
     d3.select("#Graph-Display4")
       .selectAll("div")
       .remove("div")
+    d3.select("#Graph-Display4Pop")
+      .selectAll("div")
+      .remove("div")
+    d3.select("#Graph-Display4Million")
+      .selectAll("div")
+      .remove("div")
+
+    d3.select("#Graph-Display4")
+      .selectAll("p")
+      .remove("p");
+    d3.select("#Graph-Display4Pop")
+      .selectAll("p")
+      .remove("p");
+    d3.select("#Graph-Display4Million")
+      .selectAll("p")
+      .remove("p");
   }
 };
 
@@ -148,16 +381,50 @@ const stateESelect = () => {
     if (bracketCode != "defaultBracket") {
 
       fetchIncomePercent(bracketCode, stateECode, "#Graph-Display5")
+      fetchTotalPop(stateECode, "#Graph-Display5Pop");
+      fetchMillion(stateECode, "#Graph-Display5Million");
 
     } else {
       d3.select("#Graph-Display5")
         .selectAll("div")
         .remove("div")
+      d3.select("#Graph-Display5Pop")
+        .selectAll("div")
+        .remove("div")
+      d3.select("#Graph-Display5Million")
+        .selectAll("div")
+        .remove("div")
+
+      d3.select("#Graph-Display5")
+        .selectAll("p")
+        .remove("p");
+      d3.select("#Graph-Display5Pop")
+        .selectAll("p")
+        .remove("p");
+      d3.select("#Graph-Display5Million")
+        .selectAll("p")
+        .remove("p");
     }
   } else {
     d3.select("#Graph-Display5")
       .selectAll("div")
       .remove("div")
+    d3.select("#Graph-Display5Pop")
+      .selectAll("div")
+      .remove("div")
+    d3.select("#Graph-Display5Million")
+      .selectAll("div")
+      .remove("div")
+
+    d3.select("#Graph-Display5")
+      .selectAll("p")
+      .remove("p");
+    d3.select("#Graph-Display5Pop")
+      .selectAll("p")
+      .remove("p");
+    d3.select("#Graph-Display5Million")
+      .selectAll("p")
+      .remove("p");
   }
 }
 
@@ -176,69 +443,227 @@ const bracketSelect = () =>{
     if (stateACode != "default") {
 
       fetchIncomePercent(bracketCode, stateACode, "#Graph-Display1")
-     
+      fetchTotalPop(stateACode, "#Graph-Display1Pop")
+      fetchMillion(stateACode, "#Graph-Display1Million")     
     }
     if (stateBCode !="default") {
 
       fetchIncomePercent(bracketCode, stateBCode, "#Graph-Display2")
+      fetchTotalPop(stateBCode, "#Graph-Display2Pop")
+      fetchMillion(stateBCode, "#Graph-Display2Million")
           
     }
     if (stateCCode != "default") {
 
       fetchIncomePercent(bracketCode, stateCCode, "#Graph-Display3")
-
+      fetchTotalPop(stateCCode, "#Graph-Display3Pop")
+      fetchMillion(stateCCode, "#Graph-Display3Million")
     }
     if (stateDCode != "default") {
 
       fetchIncomePercent(bracketCode, stateDCode, "#Graph-Display4")
+      fetchTotalPop(stateDCode, "#Graph-Display4Pop")
+      fetchMillion(stateDCode, "#Graph-Display4Million");
 
     }
     if (stateECode != "default") {
 
       fetchIncomePercent(bracketCode, stateECode, "#Graph-Display5")
+      fetchTotalPop(stateECode, "#Graph-Display5Pop")
+      fetchMillion(stateECode, "#Graph-Display5Million");
 
     }else{
       d3.select("#Graph-Display1")
         .selectAll("div")
-        // .transition()
         .remove("div");
+      d3.select("#Graph-Display1Pop")
+        .selectAll("div")
+        .remove("div");
+      d3.select("#Graph-Display1Million")
+        .selectAll("div")
+        .remove("div");
+
+      d3.select("#Graph-Display1")
+        .selectAll("p")
+        .remove("p");
+      d3.select("#Graph-Display1Pop")
+        .selectAll("p")
+        .remove("p");
+      d3.select("#Graph-Display1Million")
+        .selectAll("p")
+        .remove("p");
 
       d3.select("#Graph-Display2")
         .selectAll("div")
-        .remove("div");
+        .remove("div")
+      d3.select("#Graph-Display2Pop")
+        .selectAll("div")
+        .remove("div")
+      d3.select("#Graph-Display2Million")
+        .selectAll("div")
+        .remove("div")
+      d3.select("#Graph-Display2")
+        .selectAll("p")
+        .remove("p");
+      d3.select("#Graph-Display2Pop")
+        .selectAll("p")
+        .remove("p");
+      d3.select("#Graph-Display2Million")
+        .selectAll("p")
+        .remove("p");
 
       d3.select("#Graph-Display3")
         .selectAll("div")
-        .remove("div");
+        .remove("div")
+      d3.select("#Graph-Display3Pop")
+        .selectAll("div")
+        .remove("div")
+      d3.select("#Graph-Display3Million")
+        .selectAll("div")
+        .remove("div")
+      d3.select("#Graph-Display3")
+        .selectAll("p")
+        .remove("p");
+      d3.select("#Graph-Display3Pop")
+        .selectAll("p")
+        .remove("p");
+      d3.select("#Graph-Display3Million")
+        .selectAll("p")
+        .remove("p");
 
       d3.select("#Graph-Display4")
         .selectAll("div")
-        .remove("div");
+        .remove("div")
+      d3.select("#Graph-Display4Pop")
+        .selectAll("div")
+        .remove("div")
+      d3.select("#Graph-Display4Million")
+        .selectAll("div")
+        .remove("div")
+      d3.select("#Graph-Display4")
+        .selectAll("p")
+        .remove("p");
+      d3.select("#Graph-Display4Pop")
+        .selectAll("p")
+        .remove("p");
+      d3.select("#Graph-Display4Million")
+        .selectAll("p")
+        .remove("p");
 
       d3.select("#Graph-Display5")
         .selectAll("div")
-        .remove("div");
+        .remove("div")
+      d3.select("#Graph-Display5Pop")
+        .selectAll("div")
+        .remove("div")
+      d3.select("#Graph-Display5Million")
+        .selectAll("div")
+        .remove("div")
+      d3.select("#Graph-Display5")
+        .selectAll("p")
+        .remove("p");
+      d3.select("#Graph-Display5Pop")
+        .selectAll("p")
+        .remove("p");
+      d3.select("#Graph-Display5Million")
+        .selectAll("p")
+        .remove("p");
     }
   }else{
     d3.select("#Graph-Display1")
       .selectAll("div")
       .remove("div");
+    d3.select("#Graph-Display1Pop")
+      .selectAll("div")
+      .remove("div");
+    d3.select("#Graph-Display1Million")
+      .selectAll("div")
+      .remove("div");
+    d3.select("#Graph-Display1")
+      .selectAll("p")
+      .remove("p");
+    d3.select("#Graph-Display1Pop")
+      .selectAll("p")
+      .remove("p");
+    d3.select("#Graph-Display1Million")
+      .selectAll("p")
+      .remove("p");
 
     d3.select("#Graph-Display2")
       .selectAll("div")
-      .remove("div");
+      .remove("div")
+    d3.select("#Graph-Display2Pop")
+      .selectAll("div")
+      .remove("div")
+    d3.select("#Graph-Display2Million")
+      .selectAll("div")
+      .remove("div")
+    d3.select("#Graph-Display2")
+      .selectAll("p")
+      .remove("p");
+    d3.select("#Graph-Display2Pop")
+      .selectAll("p")
+      .remove("p");
+    d3.select("#Graph-Display2Million")
+      .selectAll("p")
+      .remove("p");
 
     d3.select("#Graph-Display3")
       .selectAll("div")
-      .remove("div");
+      .remove("div")
+    d3.select("#Graph-Display3Pop")
+      .selectAll("div")
+      .remove("div")
+    d3.select("#Graph-Display3Million")
+      .selectAll("div")
+      .remove("div")
+    d3.select("#Graph-Display3")
+      .selectAll("p")
+      .remove("p");
+    d3.select("#Graph-Display3Pop")
+      .selectAll("p")
+      .remove("p");
+    d3.select("#Graph-Display3Million")
+      .selectAll("p")
+      .remove("p");
 
     d3.select("#Graph-Display4")
       .selectAll("div")
-      .remove("div");
+      .remove("div")
+    d3.select("#Graph-Display4Pop")
+      .selectAll("div")
+      .remove("div")
+    d3.select("#Graph-Display4Million")
+      .selectAll("div")
+      .remove("div")
+    d3.select("#Graph-Display4")
+      .selectAll("p")
+      .remove("p");
+    d3.select("#Graph-Display4Pop")
+      .selectAll("p")
+      .remove("p");
+    d3.select("#Graph-Display4Million")
+      .selectAll("p")
+      .remove("p");
 
     d3.select("#Graph-Display5")
       .selectAll("div")
-      .remove("div");
+      .remove("div")
+    d3.select("#Graph-Display5Pop")
+      .selectAll("div")
+      .remove("div")
+    d3.select("#Graph-Display5Million")
+      .selectAll("div")
+      .remove("div")
+    d3.select("#Graph-Display5")
+      .selectAll("p")
+      .remove("p");
+    d3.select("#Graph-Display5Pop")
+      .selectAll("p")
+      .remove("p");
+    d3.select("#Graph-Display5Million")
+      .selectAll("p")
+      .remove("p");
   }
 }
 
@@ -259,3 +684,4 @@ stateD.addEventListener("change", stateDSelect)
 
 const stateE = document.getElementById("stateE")
 stateE.addEventListener("change", stateESelect)
+

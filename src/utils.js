@@ -52,7 +52,7 @@ const fetchStatePop = async (stateCode) => {
   return response;
 }
 
-fetchStatePop();
+// fetchStatePop("02");
 
 const fetchIncomeBracket = async(bracketCode, stateCode) => {
 
@@ -67,5 +67,21 @@ const fetchIncomeBracket = async(bracketCode, stateCode) => {
   return response;
 }
 
+const fetchLuxuryPercent = async(stateCode) => {
 
-module.exports = { fetchIncomeBracket }
+  let response = await fetch(
+    `https://api.census.gov/data/2018/acs/acs1/profile?get=NAME,DP04_0088PE&for=state:${stateCode}&key=${secretOrKey}`, {
+      method: "GET"
+  })
+    .then(res => res.json())
+    .catch(err=> err)
+    .then(json => json)
+
+  console.log(response);
+  return response;
+}
+
+// fetchIncomeBracket();
+// fetchLuxuryPercent("06")
+
+module.exports = { fetchIncomeBracket, fetchStatePop, fetchLuxuryPercent }
