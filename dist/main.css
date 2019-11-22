@@ -121,7 +121,7 @@ select{
 #stateA{
   text-decoration: none;
   text-transform: none;
-  background-color: rgb(243, 11, 30);
+  background-color: rgba(243, 11, 30, 0.801);
   color: white;
 }
 
@@ -137,7 +137,7 @@ select{
   font-size: 16px;
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   font-weight: 700;
-  background-color: rgb(243, 11, 30);
+  background-color: rgba(243, 11, 30, 0.849);
   text-align: right;
   padding: 10px;
   margin: 3px;
@@ -151,7 +151,7 @@ select{
   font-size: 16px;
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   font-weight: 700;
-  background-color: rgb(243, 11, 30);
+  background-color: rgba(243, 11, 30, 0.849);
   text-align: right;
   padding: 10px;
   margin: 3px;
@@ -165,7 +165,7 @@ select{
   font-size: 16px;
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   font-weight: 700;
-  background-color: rgb(243, 11, 30);
+  background-color: rgba(243, 11, 30, 0.849);
   text-align: right;
   padding: 10px;
   margin: 3px;
