@@ -20,7 +20,7 @@ body{
   justify-content: flex-start;
   margin: 5%;
   width: 80%;
-  height: vh;
+  height: fit-content;
 }
 
 h1, h2, h3, p{
@@ -75,6 +75,13 @@ select{
   margin-bottom: 10px;
 }
 
+.Income {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  transform: rotate(180);
+}
+
 #econ-ind{
   text-decoration: none;
   text-transform: none;
@@ -90,7 +97,7 @@ select{
 }
 
 #Graph-Display1 div{
-  height: 15px;
+  height: fit-content;
   width: fit-content;
   min-width: 30px;
   color: white;

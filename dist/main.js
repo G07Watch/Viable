@@ -114,16 +114,6 @@ const fetchIncomePercent = (bracket, state, graph) => {
     // console.log("Graph",graph)
     // console.log("State", state)
     // console.log("Percentage", popPercent)
-    
-    d3.select(graph)
-      .selectAll("div")
-      .data(popPercent)
-      .enter()
-      .append("div")
-      .transition()
-      .delay(1000)
-      .style("width", function (popPercent) { return popPercent*25 + 'px' })
-      .text(function (popPercent) { return popPercent + '%'; })
 
     d3.select(graph)
       .selectAll("p")
@@ -132,7 +122,19 @@ const fetchIncomePercent = (bracket, state, graph) => {
       .append("p")
       .transition()
       .delay(250)
-      .text(function(name){return 'Percentage of Population: ' + name})
+      .text(function (name) { return 'Percentage of Population: ' + name })
+    
+    d3.select(graph)
+      .selectAll("div")
+      .data(popPercent)
+      .enter()
+      .append("div")
+      .transition()
+      .delay(1000)
+      .style("height", function (popPercent) { return popPercent*15 + 'px' })
+      .text(function (popPercent) { return popPercent + '%'; })
+
+    
   })
 }
 
