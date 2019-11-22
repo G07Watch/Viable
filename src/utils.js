@@ -41,10 +41,11 @@ const {secretOrKey} = require('../config/keys');
 
 
 
+// should use &key=${secretOrKey}
 const fetchStatePop = async (stateCode) => {
 
   let response = await fetch(
-    `https://api.census.gov/data/2018/pep/population?get=GEONAME,POP&for=state:${stateCode}&key=${secretOrKey}`, {
+    `https://api.census.gov/data/2018/pep/population?get=GEONAME,POP&for=state:${stateCode}`, {
     method: "GET"
   })
     .then(res => res.json())
@@ -54,12 +55,16 @@ const fetchStatePop = async (stateCode) => {
   return response;
 }
 
-fetchStatePop("06");
+
+
+// fetchStatePop("06");
+
+// & key=${ secretOrKey }
 
 const fetchIncomeBracket = async(bracketCode, stateCode) => {
 
   let response = await fetch(
-    `https://api.census.gov/data/2018/acs/acs1/subject?get=NAME,${bracketCode}&for=state:${stateCode}&key=${secretOrKey}`, {
+    `https://api.census.gov/data/2018/acs/acs1/subject?get=NAME,${bracketCode}&for=state:${stateCode}`, {
       method: "GET"
     })
     .then(res => res.json())
@@ -69,10 +74,12 @@ const fetchIncomeBracket = async(bracketCode, stateCode) => {
   return response;
 }
 
+// & key=${ secretOrKey }
+
 const fetchLuxuryPercent = async(stateCode) => {
 
   let response = await fetch(
-    `https://api.census.gov/data/2018/acs/acs1/profile?get=NAME,DP04_0088PE&for=state:${stateCode}&key=${secretOrKey}`, {
+    `https://api.census.gov/data/2018/acs/acs1/profile?get=NAME,DP04_0088PE&for=state:${stateCode}`, {
       method: "GET"
   })
     .then(res => res.json())

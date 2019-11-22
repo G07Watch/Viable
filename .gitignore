@@ -1,5 +1,5 @@
 node_modules/
 DirStructure.md 
-bundle.js
-bundle.js.map
+# bundle.js
+# bundle.js.map
 config/keys_dev.js
