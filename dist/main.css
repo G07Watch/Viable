@@ -4,16 +4,12 @@ body{
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  /* margin: 5%;
-  width: 100%;
-  height: vh; */
 }
 
 .top-bar{
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  position: absolute;
   top: 5px;
   width: 90%;
 }
@@ -87,8 +83,7 @@ select{
   display: none;
   position: -webkit-sticky;
   position: sticky;
-  top: 90px;
-  /* left: 150px; */
+  top: 0px;
   z-index: 3;
   display: flex;
   flex-direction: row;
@@ -97,7 +92,7 @@ select{
   border: 2px solid rgb(122, 121, 121);
   width: 98%;
   border-radius: 20px;
-  background-color: rgba(27, 25, 25, 0.575);
+  background-color: rgb(27, 25, 25);
   padding: 5px;
 }
 
