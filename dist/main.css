@@ -56,6 +56,11 @@ p {
   padding:3px;
 }
 
+.graph-title{
+  margin-top: 30px;
+  padding: 15px;
+}
+
 select{
   width: fit-content;
   border: 2px solid whitesmoke;
