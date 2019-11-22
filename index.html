@@ -8,8 +8,7 @@
 </head>
 
 <body>
-  
-  
+    
   <div class="state-selectors">
     <h2>State/Territory Selectors</h2>
   
@@ -287,26 +286,34 @@
       <!-- <option value="56">Wyoming</option> -->
       <option value="72">Puerto Rico</option>
     </select>
+
+    <select name="Economic-Indicator" id="econ-ind">
+      <option value="defaultBracket">Select Income Bracket</option>
+      <option value="S0501_C03_080E">$1 to &lt;$10k</option>
+      <option value="S0501_C03_081E">$10k to &lt;$15K</option>
+      <option value="S0501_C03_082E">$15 to &lt;$25K</option>
+      <option value="S0501_C03_083E">$25k to &lt;$35k</option>
+      <option value="S0501_C03_084E">$35k to &lt;$49k</option>
+      <option value="S0501_C03_085E">$50k to &lt;$75K</option>
+      <option value="S0501_C03_086E">$75k +</option>
+    </select>
   
   </div>
 
-  <h2>Income Bracket</h2>
-  <select name="Economic-Indicator" id="econ-ind">
-    <option value="defaultBracket">Select Income Bracket</option>
-    <option value="S0501_C03_080E">$1 to &lt;$10k</option>
-    <option value="S0501_C03_081E">$10k to &lt;$15K</option>
-    <option value="S0501_C03_082E">$15 to &lt;$25K</option>
-    <option value="S0501_C03_083E">$25k to &lt;$35k</option>
-    <option value="S0501_C03_084E">$35k to &lt;$49k</option>
-    <option value="S0501_C03_085E">$50k to &lt;$75K</option>
-    <option value="S0501_C03_086E">$75k +</option>
-  </select>
+  <div class="top-bar">
+  <h1 class="viable-header">VIABLE</h1>
+
+    <img src="images/lvh.jpeg" alt="" width="100" height="75">
+    <img src="images/lh2.jpg" alt="" width="100" height="75">
+    <img src="images/brazilhome.jpg" alt="" width="100" height="75">
+  </div>
+  
  <div class="Graph-Container">
-  <h1>VIABLE</h1>
+ 
 
   
+  <h2>Percentage(%) of Population</h2>
   <div class= "Income" >
-
 
     <div class="graph" id="Graph-Display1" ></div>
 
@@ -334,8 +341,8 @@
     <div class="graph" id="Graph-Display5Pop"></div>
   </div>
 
-  <div class="Million Dollar Homes">
-    <h2>Percentage of Homes (with a minimum value of 1 million dollars)</h2>
+  <div class="Million-Dollar-Homes">
+    <h2>Percentage(%) of Homes (with a minimum value of 1 million dollars)</h2>
 
 
     <div class="graph" id="Graph-Display1Million"></div>

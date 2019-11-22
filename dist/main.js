@@ -26,7 +26,7 @@ const fetchMillion = (stateCode, graph) => {
       .append("div")
       .transition()
       .delay(1000)
-      .style("width", function (housePercent) { return housePercent * 20 + 'px' })
+      .style("width", function (housePercent) { return housePercent * 30 + 'px' })
       .text(function (housePercent) { return housePercent + '%' })
 
     d3.select(graph)
@@ -36,7 +36,7 @@ const fetchMillion = (stateCode, graph) => {
       .append("p")
       .transition()
       .delay(250)
-      .text(function (name) { return 'Percent of Homes over $1 million ' + name })
+      .text(function (name) { return name })
 
   })
 }
@@ -73,7 +73,7 @@ const fetchTotalPop = (stateCode, graph) => {
       .append("div")
       .transition()
       .delay(1000)
-      .style("width", function (population) { return population/100000 + 'px' })
+      .style("width", function (population) { return population/50000 + 'px' })
       .text(function (population) { return (population / 1000000).toString().slice(0, 4); })
 
     d3.select(graph)
@@ -83,7 +83,51 @@ const fetchTotalPop = (stateCode, graph) => {
       .append("p")
       .transition()
       .delay(250)
-      .text(function (name) { return 'Total Population: ' + name })
+      .text(function (name) { return name })
+
+    // SVG CIRCLE RENDER CODE
+
+    // d3.select(graph)
+    //   .selectAll("div")
+    //   .remove("div");
+
+    // d3.select(graph)
+    //   .selectAll("p")
+    //   .remove("p");
+
+
+    // let size = d3.scaleLinear()
+    //   .domain([0, 40000000])
+    //   .range([10, 250])
+
+    // let svg = d3.select(graph) 
+    //           .append("svg")
+    //   .attr("width", 300)
+    //   .attr("height", 300);  
+
+    // svg.select(graph)
+    //   .selectAll("circle")
+    //   .data(population)
+    //   .enter()
+    //   .append("circle")
+    //   .transition()
+    //   .delay(1000)
+    //   .attr("class", "node")
+    //   .style("stroke", "gray")
+    //   .style("fill", "blue")
+    //   .attr("r", function (population) { return size(population) })
+    //   .attr("cx", 150)
+    //   .attr("cy", 150)
+
+
+    // d3.select(graph)
+    //   .selectAll("p")
+    //   .data(name)
+    //   .enter()
+    //   .append("p")
+    //   .transition()
+    //   .delay(250)
+    //   .text(function (name) { return 'Total Population: ' + name })
 
 
   })
@@ -122,7 +166,7 @@ const fetchIncomePercent = (bracket, state, graph) => {
       .append("p")
       .transition()
       .delay(250)
-      .text(function (name) { return 'Percentage of Population: ' + name })
+      .text(function (name) { return name })
     
     d3.select(graph)
       .selectAll("div")

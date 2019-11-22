@@ -52,7 +52,7 @@ const fetchStatePop = async (stateCode) => {
   return response;
 }
 
-// fetchStatePop("02");
+fetchStatePop("06");
 
 const fetchIncomeBracket = async(bracketCode, stateCode) => {
 
