@@ -2,8 +2,9 @@ body{
   background-color: rgba(27, 25, 25, 0.815);
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: left;
   align-items: flex-start;
+  margin: 0px;
 }
 
 .top-bar{
@@ -12,6 +13,7 @@ body{
   justify-content: space-between;
   top: 5px;
   width: 90%;
+  margin-top: 5px;
 }
 
 .Graph-Container{
@@ -90,10 +92,10 @@ select{
   flex-wrap: wrap;
   justify-content: space-between;
   border: 2px solid rgb(122, 121, 121);
-  width: 98%;
-  border-radius: 20px;
+  width: 98.4%;
+  /* border-radius: 20px; */
   background-color: rgb(27, 25, 25);
-  padding: 5px;
+  padding: 10px;
 }
 
 .state-selectors select{
