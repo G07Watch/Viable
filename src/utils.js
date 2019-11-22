@@ -13,8 +13,6 @@ const {secretOrKey} = require('../config/keys');
 //   })
 //   .then(res => res.json())
 //   .then(json => json)
-
-//   console.log(response);
 //   return response;
 // }
 
@@ -22,15 +20,12 @@ const {secretOrKey} = require('../config/keys');
 
 //   await fetchAllState()
 //   .then( states  => {
-//     // console.log(states);
 //     states.shift();
 //     states.map(state =>{
 //       let stateName = state[0];
 //       let stateCode = state[2];
 //       stateIndex[stateName] = stateCode
 //     });
-
-//   // console.log(stateIndex);
 //   return stateIndex;
 //   })
 //   .catch(err => console.log(err))
@@ -51,7 +46,6 @@ const fetchStatePop = async (stateCode) => {
     .then(res => res.json())
     .then(json => json)
 
-  console.log(response);
   return response;
 }
 
@@ -70,7 +64,6 @@ const fetchIncomeBracket = async(bracketCode, stateCode) => {
     .then(res => res.json())
     .then(json => json)
     
-  // console.log(response);
   return response;
 }
 
@@ -86,11 +79,7 @@ const fetchLuxuryPercent = async(stateCode) => {
     .catch(err=> err)
     .then(json => json)
 
-  console.log(response);
   return response;
 }
-
-// fetchIncomeBracket();
-// fetchLuxuryPercent("06")
 
 module.exports = { fetchIncomeBracket, fetchStatePop, fetchLuxuryPercent }

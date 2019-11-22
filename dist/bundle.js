@@ -124,7 +124,7 @@ const { fetchIncomeBracket, fetchStatePop, fetchLuxuryPercent } = __webpack_requ
 // PERCENTAGE OF HOMES OVER A MILLION
 
 const fetchMillion = (stateCode, graph) => {
-  console.log("Fired Million!")
+ 
   fetchLuxuryPercent(stateCode).then(data=>{
     data.shift();
 
@@ -166,18 +166,14 @@ const fetchMillion = (stateCode, graph) => {
 // STATE POPULATION
 
 const fetchTotalPop = (stateCode, graph) => {
-  console.log("Fired Total Population!")
+  
   fetchStatePop(stateCode).then(data =>{ 
     data.shift();
 
     let state = data[0]
     let name = [state[0]]
     let population = [state[1]]
-    let popAnnotate = (population / 1000000).toString().slice(0, 3)
-
-    // console.log("Graph", graph)
-    // console.log("name", name)
-    // console.log("Population", population)
+    // popAnnotate : (population / 1000000).toString().slice(0, 3)
 
     d3.select(graph)
       .selectAll("div")
@@ -275,11 +271,6 @@ const fetchIncomePercent = (bracket, state, graph) => {
       .selectAll("p")
       .remove("p");
 
-
-    // console.log("Graph",graph)
-    // console.log("State", state)
-    // console.log("Percentage", popPercent)
-
     d3.select(graph)
       .selectAll("p")
       .data(name)
@@ -304,7 +295,6 @@ const fetchIncomePercent = (bracket, state, graph) => {
 }
 
 const stateASelect = () =>{
-  console.log("A Select Fired!")
  let stateACode = stateA.options[stateA.selectedIndex].value
 
   if (stateACode!="default") {
@@ -362,7 +352,7 @@ const stateASelect = () =>{
 };
 
 const stateBSelect = () => {
-  console.log("B Select Fired!")
+
   let stateBCode = stateB.options[stateB.selectedIndex].value
   
 
@@ -422,7 +412,7 @@ const stateBSelect = () => {
 };
 
 const stateCSelect = () => {
-  console.log("C Select Fired!")
+
   let stateCCode = stateC.options[stateC.selectedIndex].value
 
   if (stateCCode != "default") {
@@ -480,7 +470,7 @@ const stateCSelect = () => {
 };
 
 const stateDSelect = () => {
-  console.log("D Select Fired!")
+
   let stateDCode = stateD.options[stateD.selectedIndex].value
 
   if (stateDCode != "default") {
@@ -538,7 +528,7 @@ const stateDSelect = () => {
 };
 
 const stateESelect = () => {
-  console.log("E Select Fired!")
+  
   let stateECode = stateE.options[stateE.selectedIndex].value
 
   if (stateECode != "default") {
@@ -597,7 +587,7 @@ const stateESelect = () => {
 
 
 const bracketSelect = () =>{
-  console.log('Bracket Select Fired!')
+
   let bracketCode = incomeBracket.options[incomeBracket.selectedIndex].value;
   if (bracketCode != "defaultBracket"){
 
@@ -912,8 +902,6 @@ const {secretOrKey} = __webpack_require__(/*! ../config/keys */ "./config/keys.j
 //   })
 //   .then(res => res.json())
 //   .then(json => json)
-
-//   console.log(response);
 //   return response;
 // }
 
@@ -921,15 +909,12 @@ const {secretOrKey} = __webpack_require__(/*! ../config/keys */ "./config/keys.j
 
 //   await fetchAllState()
 //   .then( states  => {
-//     // console.log(states);
 //     states.shift();
 //     states.map(state =>{
 //       let stateName = state[0];
 //       let stateCode = state[2];
 //       stateIndex[stateName] = stateCode
 //     });
-
-//   // console.log(stateIndex);
 //   return stateIndex;
 //   })
 //   .catch(err => console.log(err))
@@ -950,7 +935,6 @@ const fetchStatePop = async (stateCode) => {
     .then(res => res.json())
     .then(json => json)
 
-  console.log(response);
   return response;
 }
 
@@ -969,7 +953,6 @@ const fetchIncomeBracket = async(bracketCode, stateCode) => {
     .then(res => res.json())
     .then(json => json)
     
-  // console.log(response);
   return response;
 }
 
@@ -985,12 +968,8 @@ const fetchLuxuryPercent = async(stateCode) => {
     .catch(err=> err)
     .then(json => json)
 
-  console.log(response);
   return response;
 }
-
-// fetchIncomeBracket();
-// fetchLuxuryPercent("06")
 
 module.exports = { fetchIncomeBracket, fetchStatePop, fetchLuxuryPercent }
 
