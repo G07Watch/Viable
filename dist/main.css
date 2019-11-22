@@ -100,9 +100,17 @@ select{
   justify-content: space-between;
   border: 2px solid rgb(122, 121, 121);
   width: 98.4%;
-  /* border-radius: 20px; */
   background-color: rgb(27, 25, 25);
   padding: 10px;
+}
+
+#state-header{
+  font-size: 16px;
+  padding: 2px;
+  margin-left: 5px;
+  margin-right: 5px;
+  margin-top: 15px;
+  margin-bottom: 10px;
 }
 
 .state-selectors select{
