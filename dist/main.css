@@ -1,13 +1,10 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
 
-<<<<<<< HEAD
 div{
   margin: 0px;
   padding: 0px;
 }
 
-=======
->>>>>>> bb1e69ee8070801a05891b4b981f996c1ed2524d
 body{
   background-color: rgba(27, 25, 25, 0.815);
   display: flex;
@@ -109,9 +106,14 @@ select{
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-between;
-  border: 2px solid rgb(122, 121, 121);
-  width: 98.4%;
+  /* border: 2px solid rgb(122, 121, 121); */
+  width: 100%;
   background-color: rgb(27, 25, 25);
+}
+
+
+.state-switches{
+  width: 95%;
   padding: 10px;
 }
 
