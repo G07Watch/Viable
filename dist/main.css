@@ -1,5 +1,13 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
 
+<<<<<<< HEAD
+div{
+  margin: 0px;
+  padding: 0px;
+}
+
+=======
+>>>>>>> bb1e69ee8070801a05891b4b981f996c1ed2524d
 body{
   background-color: rgba(27, 25, 25, 0.815);
   display: flex;
@@ -70,6 +78,9 @@ p {
 }
 
 .graph-title{
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 45%;
   margin-top: 30px;
   padding: 15px;
 }
@@ -127,6 +138,10 @@ select{
   transform: rotate(180);
 }
 
+.secondary-graphs{
+  display: flex;
+  flex-wrap: wrap;
+}
 
 #econ-ind{
   text-decoration: none;
@@ -376,4 +391,22 @@ select{
   text-align: right;
   padding: 10px;
   margin: 3px;
+}
+
+[class*=" devicon-"], [class^=devicon-] {
+	font-size: 40px;
+}
+
+.footer{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.icons{
+  text-emphasis: none;
+  text-decoration: none;
+  text-transform: none;
+  color: antiquewhite;
+  font-size: 40px;
 }
