@@ -139,7 +139,10 @@ select{
 
 .secondary-graphs{
   display: flex;
+  flex-direction: row;
   flex-wrap: wrap;
+  margin: auto;
+  width: 80%;
 }
 
 #econ-ind{
