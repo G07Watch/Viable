@@ -36,6 +36,11 @@ certain states didn't have proper information on a given subject. In other cases
 - Obtains region specific data via API call from the US Census API (Dependent on current and usable data from
   the US Census Bureau)
 - Filters data by Percentage of Population for a given Income Bracket
+
+  ![alt text][percent]
+
+[percent]: images/ViablePercentPop.png "Percentage Population"
+
 - Displays Total Population by State
 - Displays Percentage of Luxury Homes by State
 
