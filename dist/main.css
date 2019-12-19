@@ -136,10 +136,25 @@ select{
   justify-content: space-between;
   transform: rotate(180);
 }
+/* .Population {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  transform: rotate(90);
+}
+.Million-Dollar-Homes {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  transform: rotate(90);
+} */
 
 .secondary-graphs{
   display: flex;
+  flex-direction: row;
   flex-wrap: wrap;
+  margin: auto;
+  width: 80%;
 }
 
 #econ-ind{
@@ -224,7 +239,7 @@ select{
 }
 
 #Graph-Display2Pop div{
-  height: 80px;
+  height:  80px;
   width: fit-content;
   min-width: 30px;
   color: white;
@@ -272,7 +287,7 @@ select{
 }
 
 #Graph-Display3Pop div{
-  height: 80px;
+  height:  80px;
   width: fit-content;
   min-width: 30px;
   color: white;
@@ -319,7 +334,7 @@ select{
   margin: 3px;
 }
 #Graph-Display4Pop div{
-  height: 80px;
+  height:  80px;
   width: fit-content;
   min-width: 30px;
   color: rgba(27, 25, 25, 0.815);
@@ -366,7 +381,7 @@ select{
   margin: 3px;
 }
 #Graph-Display5Pop div{
-  height: 80px;
+  height:  80px;
   width: fit-content;
   min-width: 30px;
   color: white;

@@ -12,22 +12,12 @@ const fetchMillion = (stateCode, graph) => {
     let housePercent = state[1] ? [state[1]] : [0]
 
     d3.select(graph)
-      .selectAll("div")
-      .remove("div");
-
-    d3.select(graph)
       .selectAll("p")
       .remove("p");
 
     d3.select(graph)
       .selectAll("div")
-      .data(housePercent)
-      .enter()
-      .append("div")
-      .transition()
-      .delay(1000)
-      .style("width", function (housePercent) { return housePercent * 30 + 'px' })
-      .text(function (housePercent) { return housePercent + '%' })
+      .remove("div");
 
     d3.select(graph)
       .selectAll("p")
@@ -37,6 +27,16 @@ const fetchMillion = (stateCode, graph) => {
       .transition()
       .delay(250)
       .text(function (name) { return name })
+
+    d3.select(graph)
+      .selectAll("div")
+      .data(housePercent)
+      .enter()
+      .append("div")
+      .transition()
+      .delay(1000)
+      .text(function (housePercent) { return housePercent + '%' })
+      .style("width", function (housePercent) { return housePercent * 30 + 'px' })
 
   })
 }
@@ -55,22 +55,12 @@ const fetchTotalPop = (stateCode, graph) => {
     // popAnnotate : (population / 1000000).toString().slice(0, 3)
 
     d3.select(graph)
-      .selectAll("div")
-      .remove("div");
-
-    d3.select(graph)
       .selectAll("p")
       .remove("p");
 
     d3.select(graph)
       .selectAll("div")
-      .data(population)
-      .enter()
-      .append("div")
-      .transition()
-      .delay(1000)
-      .style("width", function (population) { return population/50000 + 'px' })
-      .text(function (population) { return (population / 1000000).toString().slice(0, 4); })
+      .remove("div");
 
     d3.select(graph)
       .selectAll("p")
@@ -80,6 +70,16 @@ const fetchTotalPop = (stateCode, graph) => {
       .transition()
       .delay(250)
       .text(function (name) { return name })
+
+    d3.select(graph)
+      .selectAll("div")
+      .data(population)
+      .enter()
+      .append("div")
+      .transition()
+      .delay(1000)
+      .text(function (population) { return (population / 1000000).toString().slice(0, 4); })
+      .style("width", function (population) { return population/100000 + 'px' })
 
     // SVG CIRCLE RENDER CODE
 
