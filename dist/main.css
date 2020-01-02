@@ -176,6 +176,10 @@ select{
   border: 2px solid white;
 }
 
+.graph div{
+  border: 2px solid rgba(27, 25, 25, 0);
+}
+
 #Graph-Display1 div{
   height: fit-content;
   width: 140px;
